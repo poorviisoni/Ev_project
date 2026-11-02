@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}EV Insights - Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Transform Your EV Analysis With<br>
+      <span class="typed" id="typed"></span><span class="cursor">|</span></h1>
+  <p>Explore live EV market intelligence, adoption trends, and the story behind
+     the growth of electric mobility through a polished dashboard and narrative experience.</p>
+  <div class="hero-btns">
+    <a class="pill solid big" href="/dashboard">Explore the Dashboard &rarr;</a>
+    <a class="pill outline big" href="/story">&#128214; Explore Story</a>
+  </div>
+
+  <div class="preview">
+    <div class="screen">
+      <img src="{{ url_for('static', filename='dashboard.png') }}" alt="Dashboard preview"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder" style="display:none;">Add your dashboard screenshot as static/dashboard.png</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const words = ["Seamless Insights", "Market Trends", "Smart Decisions"];
+  const el = document.getElementById("typed");
+  let w = 0, c = 0, del = false;
+  function tick() {
+    const word = words[w];
+    el.textContent = word.substring(0, c);
+    if (!del && c < word.length) { c++; setTimeout(tick, 110); }
+    else if (!del) { del = true; setTimeout(tick, 1400); }
+    else if (c > 0) { c--; setTimeout(tick, 55); }
+    else { del = false; w = (w + 1) % words.length; setTimeout(tick, 300); }
+  }
+  tick();
+</script>
+{% endblock %}

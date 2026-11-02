@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}EV Insights{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="logo" href="/">EV Insights</a>
+      <div class="links">
+        <a href="/" class="{{ 'active' if request.path == '/' }}">Home</a>
+        <a href="/about" class="{{ 'active' if request.path == '/about' }}">About</a>
+        <a href="/features" class="{{ 'active' if request.path == '/features' }}">Features</a>
+        <a href="/services" class="{{ 'active' if request.path == '/services' }}">Services</a>
+        <a href="/dashboard" class="{{ 'active' if request.path == '/dashboard' }}">Dashboard</a>
+        <a href="/story" class="{{ 'active' if request.path == '/story' }}">Story</a>
+      </div>
+      <div class="nav-btns">
+        <a class="pill solid" href="/dashboard">Explore Dashboard</a>
+        <a class="pill solid" href="/story">Explore Story</a>
+      </div>
+    </nav>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer>Electric Vehicle Market Performance &amp; Insights | Built with Tableau Public and Flask</footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}EV Insights - About{% endblock %}
+{% block content %}
+<section class="about">
+  <div class="about-img">
+    <img src="{{ url_for('static', filename='car.jpg') }}" alt="Electric vehicle"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="placeholder" style="display:none;">Add an image as static/car.jpg</div>
+  </div>
+  <div class="about-text">
+    <h2>Insights Behind the EV Story</h2>
+    <div class="underline"></div>
+    <p class="sub">Tracking adoption, momentum, and market transformation</p>
+    <p>The EV market is moving fast, and the data reveals a clear story: demand is rising,
+       technology is improving, and consumer confidence is accelerating. This dashboard
+       highlights the key trends shaping the future of electric mobility and helps turn raw
+       numbers into practical insight.</p>
+    <div class="mini-cards">
+      <div class="mini"><span>&#128200;</span><h4>Market Growth</h4>
+        <p>EV adoption continues to rise as awareness, infrastructure and affordability improve across markets.</p></div>
+      <div class="mini"><span>&#9889;</span><h4>Technology Shift</h4>
+        <p>Battery innovation and smarter mobility solutions are making EVs more competitive and scalable.</p></div>
+      <div class="mini"><span>&#128101;</span><h4>Consumer Confidence</h4>
+        <p>Growing trust in EV performance and ratings is shaping buying decisions.</p></div>
+      <div class="mini"><span>&#128202;</span><h4>Actionable Insights</h4>
+        <p>Each visual point in the dashboard supports faster, smarter decision-making.</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
